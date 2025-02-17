@@ -5,19 +5,37 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "astro-worker-assets",
-  "compatibility_date": "2025-02-14",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
-  "pages_build_output_dir": "./dist",
+  "main": "./dist/_worker.js/index.js",
+
+  /**
+   * Compatibility
+   * https://developers.cloudflare.com/workers/runtime-apis/nodejs/
+   */
+  "compatibility_date": "2025-02-17",
+  "compatibility_flags": ["nodejs_compat"],
+
+  /**
+   * Static Assets
+   * https://developers.cloudflare.com/workers/static-assets/binding/
+   */
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist"
+  },
+
+  /**
+   * Observability
+   * https://developers.cloudflare.com/workers/observability/logs/workers-logs/
+   */
   "observability": {
     "enabled": true
-  }
+  },
+
   /**
    * Smart Placement
    * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
    */
-  // "placement": { "mode": "smart" },
+  "placement": { "mode": "smart" }
 
   /**
    * Bindings
@@ -35,12 +53,6 @@
    * Note: Use secrets to store sensitive data.
    * https://developers.cloudflare.com/workers/configuration/secrets/
    */
-
-  /**
-   * Static Assets
-   * https://developers.cloudflare.com/workers/static-assets/binding/
-   */
-  // "assets": { "directory": "./public/", "binding": "ASSETS" },
 
   /**
    * Service Bindings (communicate between multiple Workers)
