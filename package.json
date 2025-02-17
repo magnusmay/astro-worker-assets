@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro build && wrangler dev",
     "astro": "astro",
-    "deploy": "astro build && wrangler deploy --minify"
+    "deploy": "astro build && wrangler deploy"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.2.1",
