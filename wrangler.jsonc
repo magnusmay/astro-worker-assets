@@ -6,6 +6,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "astro-worker-assets",
   "main": "./dist/_worker.js/index.js",
+  "minify": true,
 
   /**
    * Compatibility
@@ -16,7 +17,7 @@
 
   /**
    * Static Assets
-   * https://developers.cloudflare.com/workers/static-assets/binding/
+   * https://developers.cloudflare.com/workers/wrangler/configuration/#assets
    */
   "assets": {
     "binding": "ASSETS",
@@ -25,7 +26,7 @@
 
   /**
    * Observability
-   * https://developers.cloudflare.com/workers/observability/logs/workers-logs/
+   * https://developers.cloudflare.com/workers/wrangler/configuration/#observability
    */
   "observability": {
     "enabled": true
